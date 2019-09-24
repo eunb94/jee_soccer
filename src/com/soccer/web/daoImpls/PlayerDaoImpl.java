@@ -38,6 +38,7 @@ public class PlayerDaoImpl implements PlayerDao{
 			e.printStackTrace();
 		}
 		return positions;
+	
 	}
 
 
