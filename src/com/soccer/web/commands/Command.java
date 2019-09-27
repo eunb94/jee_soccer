@@ -18,8 +18,8 @@ public class Command implements Order{
 				request.getParameter("solar"),
 				request.getParameter("action"),
 				request.getParameter("page")));
-		System.out.println("리퀘스트 가는 길 : "+String.format(Constants.HOME_PATH, page));		
-		this.view = String.format(Constants.HOME_PATH,page);
+		System.out.println("리퀘스트 가는 길 : "+String.format(Constants.DOUBLE_PATH, domain, page));		
+		this.view = String.format(Constants.DOUBLE_PATH, "facade", "login");
 		
 	}
 
