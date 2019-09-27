@@ -6,9 +6,12 @@ import com.soccer.web.serviceImpls.PlayerServiceImpl;
 
 public class LoginCommand extends Command{
 		public LoginCommand(HttpServletRequest request) {
-			System.out.println("5. 로그인 커맨드 들어옴");
-			System.out.println(String.format("request 출력 : %s, %s, %s, %s ", request.getParameter("pId"), 
-					request.getParameter("solar"), request.getParameter("action"), request.getParameter("page")));
+			System.out.println("★★★  5.로그인 커맨드 들어옴 ★★★ ");
+			System.out.println(String.format("request 값 출력 : %s, %s, %s, %s ",
+					request.getParameter("pId"), 
+					request.getParameter("solar"),
+					request.getParameter("action"),
+					request.getParameter("page")));
 			setRequest(request);
 			setAction(request.getParameter("action"));
 

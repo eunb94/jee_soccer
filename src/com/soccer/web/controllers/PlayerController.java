@@ -23,13 +23,16 @@ public class PlayerController extends HttpServlet {
 
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("1. 서블릿 들어옴");
-		System.out.println(String.format("request 출력 : %s, %s, %s, %s", request.getParameter("pId"), 
-				request.getParameter("solar"), request.getParameter("action"), request.getParameter("page")));
+		System.out.println("★★★  1. 컨트롤러 서블릿에 들어옴 ★★★ ");
+		System.out.println(String.format("request 값 출력 : %s, %s, %s, %s ",
+				request.getParameter("pId"), 
+				request.getParameter("solar"),
+				request.getParameter("action"),
+				request.getParameter("page")));
 		
 		Receiver.init(request);
 		Sender.forward(request, response);
-		
+			
 		
 
 	}

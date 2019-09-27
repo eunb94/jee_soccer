@@ -1,32 +1,27 @@
 package com.soccer.web.daoImpls;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import com.soccer.web.pool.Constants;
-import com.sun.corba.se.pept.transport.ContactInfo;
 import com.soccer.web.daos.PlayerDao;
 import com.soccer.web.domains.PlayerBean;
 import com.soccer.web.factory.DatabaseFactory;
 
 public class PlayerDaoImpl implements PlayerDao{
 	private static PlayerDaoImpl instance = new PlayerDaoImpl();
-	private static Connection conn;
 	public static PlayerDaoImpl getInstance() {	return instance;}
 	private PlayerDaoImpl() {}
 	
 	
 	@Override
 	public PlayerBean selectBYPlayerIdSolar(PlayerBean param) {
-		System.out.println("8. 플레이어다오임플 들어옴");
-		System.out.println(String.format("request 출력 : %s, %s ", param.getPId(), 
+		System.out.println("★★★  8. DAO 임플에 들어옴 ★★★ ");
+		System.out.println(String.format("request 값 출력 : %s, %s ",
+				param.getPId(),
 				param.getSolar()));
-//		PlayerDaoImpl.getInstance().selectBYPlayerIdSolar(param);
+
 		
 		PlayerBean player = null;
 		String sql = "SELECT * \n" + 
@@ -89,7 +84,8 @@ public class PlayerDaoImpl implements PlayerDao{
 	
 	@Override
 	public List<PlayerBean> selectByTeamidPosition(PlayerBean param) {
-		// TODO Auto-generated method stub
+
+		
 		return null;
 	}
 	@Override
