@@ -14,7 +14,16 @@ public class PlayerServiceImpl implements PlayerService{
 	}
 	private PlayerServiceImpl() {
 		
+		
+	
 	}
+	@Override
+	public boolean join(PlayerBean param) {
+		return PlayerDaoImpl.getInstance().insertPlayer(param);
+
+		
+	}
+	
 	@Override
 	public PlayerBean login(PlayerBean param) {
 		System.out.println("★★★  6. 서비스임플에 들어옴 ★★★ ");
@@ -38,6 +47,8 @@ public class PlayerServiceImpl implements PlayerService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+
 
 
 }

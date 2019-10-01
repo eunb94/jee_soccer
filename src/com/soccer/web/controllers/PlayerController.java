@@ -1,5 +1,6 @@
 package com.soccer.web.controllers;
 
+import com.soccer.web.enums.Action;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -23,13 +24,20 @@ public class PlayerController extends HttpServlet {
 
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("★★★ 1. 서블릿 들어옴 ★★★ ");
+		System.out.println("★★★ 1.Player 서블릿 들어옴 ★★★ ");
 		System.out.println(String.format("request 값 출력 : %s, %s, %s, %s ",
 				request.getParameter("pId"), 
 				request.getParameter("solar"),
 				request.getParameter("action"),
 				request.getParameter("page")));
 		Receiver.init(request);
+		switch(Action.valueOf(request.getParameter("action").toUpperCase())) {
+		case CREATE : request.setAttribute("page", "login"); break;
+		
+		default:
+			break;
+		}		
+		
 		Sender.forward(request, response);
 	}
 

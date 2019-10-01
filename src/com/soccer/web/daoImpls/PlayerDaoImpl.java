@@ -15,6 +15,32 @@ public class PlayerDaoImpl implements PlayerDao{
 	private PlayerDaoImpl() {}
 	
 	
+	
+	@Override
+	public boolean insertPlayer(PlayerBean param) {
+		boolean flag = false;
+	
+		try {
+			String sql = "INSERT INTO PLAYER(PLAYER_ID, SOLAR, TEAM_ID, PLAYER_NAME)\r\n" + 
+					"VALUES(?, ?,'K03', '홍길동')";
+					PreparedStatement stmt = DatabaseFactory
+							.createDatabase(Constants.VENDOR)
+							.getConnection()
+							.prepareStatement(sql);
+					stmt.setString(1, param.getPId());
+					stmt.setString(2, param.getSolar());
+					int rs = stmt.executeUpdate();
+					flag =(rs == 1);
+					/**
+					 * if(rs == 1){
+					 * }else{}*/
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	return flag;
+	}
+	
 	@Override
 	public PlayerBean selectBYPlayerIdSolar(PlayerBean param) {
 		System.out.println("★★★  8. DAO 임플에 들어옴 ★★★ ");
@@ -93,30 +119,7 @@ public class PlayerDaoImpl implements PlayerDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
-	public List<PlayerBean> selectByMany(PlayerBean param) {
-		List<PlayerBean> list = new ArrayList<>();
-		String sql = "? ? ? ?";
-		try {
-			PreparedStatement stmt = DatabaseFactory
-					.createDatabase(Constants.VENDOR)
-					.getConnection()
-					.prepareStatement(sql);
-			stmt.setString(1, param.getPId());
-			stmt.setString(2, param.getSolar());
-			stmt.setString(3, param.getBackNo());
-			stmt.setString(4, param.getBDate());
-		ResultSet rs = stmt.executeQuery();
-		while(rs.next()) {
-			
-		}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
+	
 
 }
 

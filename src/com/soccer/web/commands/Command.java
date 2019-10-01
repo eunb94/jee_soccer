@@ -19,7 +19,8 @@ public class Command implements Order{
 				request.getParameter("action"),
 				request.getParameter("page")));
 		System.out.println("리퀘스트 가는 길 : "+String.format(Constants.DOUBLE_PATH, domain, page));		
-		this.view = String.format(Constants.DOUBLE_PATH,"facade", page);
+		this.view = String.format(Constants.DOUBLE_PATH,"facade", "main");
+		
 		
 	}
 	

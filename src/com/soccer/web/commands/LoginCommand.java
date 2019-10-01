@@ -16,6 +16,7 @@ public class LoginCommand extends Command{
 			setDomain(request.getServletPath()
 					.substring(1,request.getServletPath().indexOf(".")));
 			setAction(request.getParameter("action"));
+			
 			execute();
 		}
 		@Override
@@ -27,7 +28,8 @@ public class LoginCommand extends Command{
 			player.setSolar(solar);
 			player = PlayerServiceImpl.getInstance().login(player);
 			System.out.println("10. DB에서 커맨드로 전달된 로그인 객체 : "+player);
-			setPage((player!=null) ?request.getParameter("page"):("login"));
+			setPage((player.getPId().equals(request.getParameter("pId"))
+					&& player.getSolar().equals(request.getParameter("solar"))) ?request.getParameter("page"):("login"));
 			super.execute();
 		}
 }

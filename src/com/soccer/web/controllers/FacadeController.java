@@ -24,13 +24,20 @@ public class FacadeController extends HttpServlet {
 					  request.getContextPath() + ((r.toString().toLowerCase().equals("ctx")) 
 						? ""
 							: "/resources/"+r.toString().toLowerCase()));
+		}		
+
+	if(request.getParameter("page")==null) {
+			request.setAttribute("page", "login");
+		}else {
+			request.setAttribute("page", request.getParameter("page"));
 		}
 		request
 		.getRequestDispatcher(
 				String.format(Constants.DOUBLE_PATH,
 						request.getServletPath().substring(1,request.getServletPath().indexOf(".")),
-						"login"))
+						"main"))
 		.forward(request, response);
+		System.out.println("facade 컨트롤러 : " + request.getParameter("page"));
 	}
 
 	
