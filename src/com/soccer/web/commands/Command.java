@@ -11,7 +11,7 @@ public class Command implements Order{
 	protected String action, page, view, domain;
 	
 	@Override
-	public void excute() {
+	public void execute() {
 		System.out.println("★★★  4. Command 들어옴 ★★★ ");
 		System.out.println(String.format("request 값 출력 : %s, %s, %s, %s ",
 				request.getParameter("pId"), 
@@ -19,8 +19,11 @@ public class Command implements Order{
 				request.getParameter("action"),
 				request.getParameter("page")));
 		System.out.println("리퀘스트 가는 길 : "+String.format(Constants.DOUBLE_PATH, domain, page));		
-		this.view = String.format(Constants.DOUBLE_PATH, "facade", "login");
+		this.view = String.format(Constants.DOUBLE_PATH,"facade", page);
+		
+	}
+	
+
 		
 	}
 
-}

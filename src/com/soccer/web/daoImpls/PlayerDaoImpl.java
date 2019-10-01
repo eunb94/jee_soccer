@@ -55,7 +55,7 @@ public class PlayerDaoImpl implements PlayerDao{
 			
 			e.printStackTrace();
 		}
-		System.out.println("9. 변환된 값 : " + player.toString());		
+		System.out.println("9. 변환된 값 : " + player);		
 		return player;
 	}
 	
