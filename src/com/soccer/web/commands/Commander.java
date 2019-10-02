@@ -16,7 +16,8 @@ public class Commander {
 		case CREATE : cmd = new CreateCommand(request); break;	
 		case UPDATE : break;
 		case DELETE : break;
-		case SEARCH : break;
+		case LOGIN : cmd = new LoginCommand(request); break;
+		case SEARCH : cmd = new SearchCommand(request); break;
 		case MOVE : cmd = 
 				new MoveCommand(request);
 				break;

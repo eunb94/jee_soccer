@@ -5,19 +5,22 @@ var app = (()=>{
 			playerService.login(ctx);
 			playerService.join(ctx);
 			playerService.moveJoin(ctx);
+			playerService.position(ctx);
+			playerService.teamPosition(ctx);
 			
-			
-
-
+			$('#back_position').click(()=>{
+				alert('플레이어 메인 이동');
+				location.assign(ctx+'/player.do?action=login&page=main');
+			});
 			$('#back').click(()=>{
 				alert('로그인 이동');
-				location.assign(ctx+'/facade.do?action=move&page=login');
+				location.assign(ctx+'/player.do?action=move&page=login');
 			});
 		}
 			
 	};
 })();
-
+			 
 /* pId, pName, ePlayerName, nickName, joinY, position, nation, solar, height, weight, backNo, bDate, teamId; */
 
 var player = (()=>{
@@ -47,6 +50,7 @@ var playerService = (()=>{
 				}else{
 					alert('입력한 아이디 값 : '+$('#username').val());
 					$('#login_form').attr('action', ctx+'/player.do');
+					$('#login_form').attr('method','POST');
 					$('#login_form').submit();
 						
 				}
@@ -61,6 +65,7 @@ var playerService = (()=>{
 				}else{
 					alert('입력한 아이디 값 : '+$('#join_pId').val());
 					$('#join_form').attr('action', ctx+'/player.do');
+					$('#join_form').attr('method','POST');
 					$('#join_form').submit();
 						
 				}
@@ -70,7 +75,18 @@ var playerService = (()=>{
 			$('#a_join').click(()=>{
 				location.assign(ctx+'/facade.do?action=move&page=join');
 			});
+		},
+		position : (ctx)=>{
+			$('#q_position').click(()=>{
+				location.assign(ctx+'/player.do?action=search&page=2_positions_a');
+			});
+		},
+		teamPosition: (ctx)=>{
+			$('#team_position_btn').click(()=>{
+				
+			});
 		}
+	
 	};
 })();
 

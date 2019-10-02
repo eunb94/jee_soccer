@@ -8,9 +8,6 @@
 <div></div> 
 <div class="content">
 <c:choose>
-	<c:when test="${page eq '2_positions'}">
-	<jsp:include page="2_positions.jsp"/>
-	</c:when>
 	<c:when test="${page eq 'login'}">
 	<jsp:include page="login.jsp"/>
 	</c:when>

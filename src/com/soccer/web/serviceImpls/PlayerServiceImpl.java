@@ -33,9 +33,8 @@ public class PlayerServiceImpl implements PlayerService{
 		return PlayerDaoImpl.getInstance().selectBYPlayerIdSolar(param);
 	}
 	@Override
-	public List<String> findPositions() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<String> findPositions() {	
+		return PlayerDaoImpl.getInstance().selectPositions();
 	}
 	@Override
 	public List<PlayerBean> findByTeamidPosition(PlayerBean param) {

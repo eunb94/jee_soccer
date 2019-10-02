@@ -28,16 +28,16 @@ public class FacadeController extends HttpServlet {
 
 	if(request.getParameter("page")==null) {
 			request.setAttribute("page", "login");
-		}else {
+		}else {			
 			request.setAttribute("page", request.getParameter("page"));
-		}
+		}	
 		request
 		.getRequestDispatcher(
 				String.format(Constants.DOUBLE_PATH,
 						request.getServletPath().substring(1,request.getServletPath().indexOf(".")),
 						"main"))
 		.forward(request, response);
-		System.out.println("facade 컨트롤러 : " + request.getParameter("page"));
+		
 	}
 
 	

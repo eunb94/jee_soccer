@@ -2,6 +2,7 @@ package com.soccer.web.commands;
 import javax.servlet.http.HttpServletRequest;
 
 import com.soccer.web.domains.PlayerBean;
+import com.soccer.web.pool.Constants;
 import com.soccer.web.serviceImpls.PlayerServiceImpl;
 
 public class LoginCommand extends Command{
@@ -28,8 +29,10 @@ public class LoginCommand extends Command{
 			player.setSolar(solar);
 			player = PlayerServiceImpl.getInstance().login(player);
 			System.out.println("10. DB에서 커맨드로 전달된 로그인 객체 : "+player);
-			setPage((player.getPId().equals(request.getParameter("pId"))
-					&& player.getSolar().equals(request.getParameter("solar"))) ?request.getParameter("page"):("login"));
-			super.execute();
+			if(player!=null) {
+	            this.view = String.format(Constants.DOUBLE_PATH, "player","main");
+	        }else {
+	            this.view = String.format(Constants.DOUBLE_PATH, "facade","main");
+	        }
 		}
 }
